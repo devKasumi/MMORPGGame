@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Characters/WarriorBaseCharacter.h"
+#include "Characters/BaseCharacter.h"
 #include "WarriorHeroCharacter.generated.h"
 
 class USpringArmComponent;
@@ -13,7 +13,7 @@ class UCameraComponent;
  * 
  */
 UCLASS()
-class MMORPG_API AWarriorHeroCharacter : public AWarriorBaseCharacter
+class MMORPG_API AWarriorHeroCharacter : public ABaseCharacter
 {
 	GENERATED_BODY()
 
