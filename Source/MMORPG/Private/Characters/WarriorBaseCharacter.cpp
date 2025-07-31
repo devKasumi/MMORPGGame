@@ -2,6 +2,7 @@
 
 
 #include "Characters/WarriorBaseCharacter.h"
+#include "DebugHelper.h"
 
 // Sets default values
 AWarriorBaseCharacter::AWarriorBaseCharacter()
@@ -12,6 +13,17 @@ AWarriorBaseCharacter::AWarriorBaseCharacter()
 
 	GetMesh()->bReceivesDecals = false;
 
+}
+
+void AWarriorBaseCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	//Debug::LOG_W("Position: ({}, {}, {})", 100, 200, 300);
+	//Debug::LOG
+	LOG_I("Position: ({}, {}, {})", 100, 200, 300);
+	LOG_W("Position: ({}, {}, {})", 100, 200, 300);
+	LOG_E("Position: ({}, {}, {})", 100, 200, 300);
 }
 
 
