@@ -8,7 +8,7 @@
 
 namespace Debug
 {
-	/*static void Print(const FString& Msg, const FColor& Color = FColor::MakeRandomColor(), int32 InKey = -1)
+	static void Print(const FString& Msg, const FColor& Color = FColor::MakeRandomColor(), int32 InKey = -1)
 	{
 		if (GEngine)
 		{
@@ -16,7 +16,7 @@ namespace Debug
 
 			UE_LOG(LogTemp, Warning, TEXT("%s"), *Msg);
 		}
-	}*/
+	}
 
 	template<typename... Args>
 	static void LOG(ELogVerbosity::Type Verbosity, const std::string& FormatStr, Args&&... args)
