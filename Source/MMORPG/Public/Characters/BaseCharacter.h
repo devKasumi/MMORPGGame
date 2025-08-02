@@ -37,8 +37,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharacterData", meta = (AllowPrivateAccess = "true"))
 	UDataAsset_InputConfig* InputConfigDataAsset;
 
-	void Input_Move(const FInputActionValue& InputActionValue);
-	void Input_Look(const FInputActionValue& InputActionValue);
+	virtual void Input_Move(const FInputActionValue& InputActionValue);
+	virtual void Input_Look(const FInputActionValue& InputActionValue);
 
 #pragma endregion
 
