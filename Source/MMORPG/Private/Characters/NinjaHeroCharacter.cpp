@@ -1,19 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Characters/WarriorHeroCharacter.h"
+#include "Characters/NinjaHeroCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-//#include "EnhancedInputSubsystems.h"
-//#include "DataAssets/Input/DataAsset_InputConfig.h"
-//#include "Components/Input/HeroInputComponent.h"
-//#include "HeroGameplayTags.h"
 
 #include "DebugHelper.h"
 
-AWarriorHeroCharacter::AWarriorHeroCharacter()
+ANinjaHeroCharacter::ANinjaHeroCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.f);
 

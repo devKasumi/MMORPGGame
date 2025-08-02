@@ -28,21 +28,21 @@ namespace Debug
 		if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 7.0f, FColor::MakeRandomColor(), Msg);
-		}
 
-		switch (Verbosity)
-		{
-		case ELogVerbosity::Log:
-			UE_LOG(LogTemp, Log, TEXT("%s"), *Msg);
-			break;
-		case ELogVerbosity::Warning:
-			UE_LOG(LogTemp, Warning, TEXT("%s"), *Msg);
-			break;
-		case ELogVerbosity::Error:
-			UE_LOG(LogTemp, Error, TEXT("%s"), *Msg);
-			break;
-		default:
-			break;
+			switch (Verbosity)
+			{
+			case ELogVerbosity::Log:
+				UE_LOG(LogTemp, Log, TEXT("%s"), *Msg);
+				break;
+			case ELogVerbosity::Warning:
+				UE_LOG(LogTemp, Warning, TEXT("%s"), *Msg);
+				break;
+			case ELogVerbosity::Error:
+				UE_LOG(LogTemp, Error, TEXT("%s"), *Msg);
+				break;
+			default:
+				break;
+			}
 		}
 	}
 }
