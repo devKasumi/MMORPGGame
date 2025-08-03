@@ -8,6 +8,11 @@
 
 namespace Debug
 {
+	static std::string ConvertToStdString(const FString& Str)
+	{
+		return std::string(TCHAR_TO_UTF8(*Str));
+	}
+
 	static void Print(const FString& Msg, const FColor& Color = FColor::MakeRandomColor(), int32 InKey = -1)
 	{
 		if (GEngine)

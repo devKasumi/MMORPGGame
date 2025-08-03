@@ -4,15 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AbilitySystemInterface.h"
 #include "BaseCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
 class UDataAsset_InputConfig;
 struct FInputActionValue;
+class UCharacterAbilitySystemComponent;
+class UCharacterAttributeSet;
 
 UCLASS()
-class MMORPG_API ABaseCharacter : public ACharacter
+class MMORPG_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -21,6 +24,10 @@ public:
 	ABaseCharacter();
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerComponent) override;
+
+	//~ Begin IAbilitySystemInterface Interface.
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+	//~ End IAbilitySystemInterface Interface
 
 protected:
 #pragma region Components
@@ -42,4 +49,24 @@ protected:
 
 #pragma endregion
 
+	//~ Begin APawn Interface.
+	virtual void PossessedBy(AController* NewController) override;
+	//~ End APawn Interface
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
+	UCharacterAbilitySystemComponent* CharacterAbilitySystemComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
+	UCharacterAttributeSet* CharacterAttributeSet;
+
+public:
+	FORCEINLINE UCharacterAbilitySystemComponent* GetCharacterAbilitySystemComponent() const 
+	{
+		return CharacterAbilitySystemComponent;
+	}
+
+	FORCEINLINE UCharacterAttributeSet* GetCharacterAttributeSet() const
+	{
+		return CharacterAttributeSet;
+	}
 };

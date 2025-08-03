@@ -6,10 +6,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
-//#include "EnhancedInputSubsystems.h"
-//#include "DataAssets/Input/DataAsset_InputConfig.h"
-//#include "Components/Input/HeroInputComponent.h"
-//#include "HeroGameplayTags.h"
+#include "AbilitySystem/CharacterAbilitySystemComponent.h"
 
 #include "DebugHelper.h"
 
@@ -35,4 +32,18 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 500.f, 0.f);
 	GetCharacterMovement()->MaxWalkSpeed = 400.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
+}
+
+void AWarriorHeroCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (CharacterAbilitySystemComponent && CharacterAttributeSet)
+	{
+		const FString ASCText = FString::Printf(TEXT("Owner Actor: %s, AvatarActor: %s"),
+			*CharacterAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),
+			*CharacterAbilitySystemComponent->GetAvatarActor()->GetActorLabel());
+		LOG_I("Ability system component valid. {}", Debug::ConvertToStdString(*ASCText));
+		LOG_I("AttributeSet valid. {}", Debug::ConvertToStdString(*ASCText));
+	}
 }

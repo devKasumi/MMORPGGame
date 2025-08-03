@@ -10,6 +10,8 @@
 #include "DataAssets/Input/DataAsset_InputConfig.h"
 #include "Components/Input/HeroInputComponent.h"
 #include "HeroGameplayTags.h"
+#include "AbilitySystem/CharacterAbilitySystemComponent.h"
+#include "AbilitySystem/CharacterAttributeSet.h"
 
 #include "DebugHelper.h"
 
@@ -21,6 +23,9 @@ ABaseCharacter::ABaseCharacter()
 	PrimaryActorTick.bStartWithTickEnabled = false;
 
 	GetMesh()->bReceivesDecals = false;
+
+	CharacterAbilitySystemComponent = CreateDefaultSubobject<UCharacterAbilitySystemComponent>(TEXT("CharacterAbilitySystemComponent"));
+	CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
 
 }
 
@@ -55,6 +60,11 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerComponent)
 	);
 }
 
+UAbilitySystemComponent* ABaseCharacter::GetAbilitySystemComponent() const
+{
+	return GetCharacterAbilitySystemComponent();
+}
+
 void ABaseCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
@@ -87,6 +97,16 @@ void ABaseCharacter::Input_Look(const FInputActionValue& InputActionValue)
 	if (LookAxisVector.Y != 0.f)
 	{
 		AddControllerPitchInput(-LookAxisVector.Y);
+	}
+}
+
+void ABaseCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (CharacterAbilitySystemComponent)
+	{
+		CharacterAbilitySystemComponent->InitAbilityActorInfo(this, this);
 	}
 }
 

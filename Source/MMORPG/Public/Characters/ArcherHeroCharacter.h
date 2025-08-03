@@ -16,5 +16,11 @@ class MMORPG_API AArcherHeroCharacter : public ABaseCharacter
 
 public:
 	AArcherHeroCharacter();
+
+protected:
+
+	//~ Begin APawn Interface.
+	virtual void PossessedBy(AController* NewController) override;
+	//~ End APawn Interface
 	
 };
