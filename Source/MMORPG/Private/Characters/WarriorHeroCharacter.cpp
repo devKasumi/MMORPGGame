@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
+#include "DataAssets/StartUpData/DataAsset_WarriorHeroStartUpData.h"
 
 #include "DebugHelper.h"
 
@@ -38,12 +39,20 @@ void AWarriorHeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if (CharacterAbilitySystemComponent && CharacterAttributeSet)
+	//if (CharacterAbilitySystemComponent && CharacterAttributeSet)
+	//{
+	//	const FString ASCText = FString::Printf(TEXT("Owner Actor: %s, AvatarActor: %s"),
+	//		*CharacterAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),
+	//		*CharacterAbilitySystemComponent->GetAvatarActor()->GetActorLabel());
+	//	LOG_I("Ability system component valid. {}", Debug::ConvertToStdString(*ASCText));
+	//	LOG_I("AttributeSet valid. {}", Debug::ConvertToStdString(*ASCText));
+	//}
+
+	if (!CharacterStartUpData.IsNull())
 	{
-		const FString ASCText = FString::Printf(TEXT("Owner Actor: %s, AvatarActor: %s"),
-			*CharacterAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),
-			*CharacterAbilitySystemComponent->GetAvatarActor()->GetActorLabel());
-		LOG_I("Ability system component valid. {}", Debug::ConvertToStdString(*ASCText));
-		LOG_I("AttributeSet valid. {}", Debug::ConvertToStdString(*ASCText));
+		if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartUpData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(CharacterAbilitySystemComponent);
+		}
 	}
 }
