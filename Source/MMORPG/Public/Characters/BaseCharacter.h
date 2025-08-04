@@ -13,6 +13,7 @@ class UDataAsset_InputConfig;
 struct FInputActionValue;
 class UCharacterAbilitySystemComponent;
 class UCharacterAttributeSet;
+class UDataAsset_StartUpDataBase;
 
 UCLASS()
 class MMORPG_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface
@@ -58,6 +59,10 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
 	UCharacterAttributeSet* CharacterAttributeSet;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharacterData")
+	TSoftObjectPtr<UDataAsset_StartUpDataBase> CharacterStartUpData;
+
 
 public:
 	FORCEINLINE UCharacterAbilitySystemComponent* GetCharacterAbilitySystemComponent() const 
