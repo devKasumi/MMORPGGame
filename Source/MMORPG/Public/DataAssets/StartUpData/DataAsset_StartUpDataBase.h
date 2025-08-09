@@ -27,6 +27,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "StartUpData")
 	TArray<TSubclassOf<UCharacterGameplayAbility>> ReactiveAbilities;
 
-	void GrandAbilities(const TArray<TSubclassOf<UCharacterGameplayAbility>>& InAbilitiesToGive, UCharacterAbilitySystemComponent* InASCToGive, int32 ApplyLevel = 1);
+	void GrandAbilities(
+		const TArray<TSubclassOf<UCharacterGameplayAbility>>& InAbilitiesToGive, 
+		UCharacterAbilitySystemComponent* InASCToGive, 
+		int32 ApplyLevel = 1
+	);
 
 };

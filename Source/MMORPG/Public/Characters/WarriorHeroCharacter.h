@@ -10,6 +10,7 @@ class USpringArmComponent;
 class UCameraComponent;
 class UDataAsset_InputConfig;
 struct FInputActionValue;
+class UWarriorHeroCombatComponent;
 
 /**
  * 
@@ -28,5 +29,13 @@ protected:
 	//~ Begin APawn Interface.
 	virtual void PossessedBy(AController* NewController) override;
 	//~ End APawn Interface
+
+private:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
+	UWarriorHeroCombatComponent* WarriorCombatComponent;
+
+public:
+	FORCEINLINE UWarriorHeroCombatComponent* GetWarriorCombatComponent() const { return WarriorCombatComponent; }
 
 };
