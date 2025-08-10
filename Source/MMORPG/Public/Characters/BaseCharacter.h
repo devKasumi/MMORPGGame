@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "GameplayTagContainer.h"
 #include "BaseCharacter.generated.h"
 
 class USpringArmComponent;
@@ -47,6 +48,9 @@ protected:
 
 	virtual void Input_Move(const FInputActionValue& InputActionValue);
 	virtual void Input_Look(const FInputActionValue& InputActionValue);
+
+	void Input_AbilityInputPressed(FGameplayTag InInputTag);
+	void Input_AbilityInputReleased(FGameplayTag InInputTag);
 
 #pragma endregion
 

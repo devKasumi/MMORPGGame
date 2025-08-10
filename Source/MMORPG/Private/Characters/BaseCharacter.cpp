@@ -58,6 +58,13 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerComponent)
 		this,
 		&ThisClass::Input_Look
 	);
+
+	HeroInputComponent->BindAbilityInputAction(
+		InputConfigDataAsset,
+		this,
+		&ThisClass::Input_AbilityInputPressed,
+		&ThisClass::Input_AbilityInputReleased
+	);
 }
 
 UAbilitySystemComponent* ABaseCharacter::GetAbilitySystemComponent() const
@@ -98,6 +105,16 @@ void ABaseCharacter::Input_Look(const FInputActionValue& InputActionValue)
 	{
 		AddControllerPitchInput(-LookAxisVector.Y);
 	}
+}
+
+void ABaseCharacter::Input_AbilityInputPressed(FGameplayTag InInputTag)
+{
+	CharacterAbilitySystemComponent->OnAbilityInputPressed(InInputTag);
+}
+
+void ABaseCharacter::Input_AbilityInputReleased(FGameplayTag InInputTag)
+{
+	CharacterAbilitySystemComponent->OnAbilityInputReleased(InInputTag);
 }
 
 void ABaseCharacter::PossessedBy(AController* NewController)
