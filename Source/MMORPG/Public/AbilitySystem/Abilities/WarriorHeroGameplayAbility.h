@@ -8,6 +8,7 @@
 
 class AWarriorHeroCharacter;
 class AHeroController;
+class UWarriorHeroCombatComponent;
 
 /**
  * 
@@ -21,12 +22,15 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
 	AWarriorHeroCharacter* GetHeroCharacterFromActorInfo();
 
-	//UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
-	//AWarriorHeroController* GetWarriorHeroController
+	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	AHeroController* GetHeroControllerFromActorInfo();
 
+	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	UWarriorHeroCombatComponent* GetWarriorHeroCombatComponentFromActorInfo();
 
 private:
 	TWeakObjectPtr<AWarriorHeroCharacter> CachedWarriorHeroCharacter;
+	TWeakObjectPtr<AHeroController> CachedHeroCharacterController;
 
 
 };

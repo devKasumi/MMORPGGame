@@ -3,6 +3,7 @@
 
 #include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
 #include "Characters/WarriorHeroCharacter.h"
+#include "Controllers/HeroController.h"
 
 AWarriorHeroCharacter* UWarriorHeroGameplayAbility::GetHeroCharacterFromActorInfo()
 {
@@ -10,6 +11,20 @@ AWarriorHeroCharacter* UWarriorHeroGameplayAbility::GetHeroCharacterFromActorInf
 	{
 		CachedWarriorHeroCharacter = Cast<AWarriorHeroCharacter>(CurrentActorInfo->AvatarActor);
 	}
-	//return Cast<AWarriorHeroCharacter>(GetAvatarActorFromActorInfo());
-	return CachedWarriorHeroCharacter.IsValid()? CachedWarriorHeroCharacter.Get() : nullptr;
+
+	return CachedWarriorHeroCharacter.IsValid() ? CachedWarriorHeroCharacter.Get() : nullptr;
+}
+
+AHeroController* UWarriorHeroGameplayAbility::GetHeroControllerFromActorInfo()
+{
+	if (!CachedHeroCharacterController.IsValid())
+	{
+		CachedHeroCharacterController = Cast<AHeroController>(CurrentActorInfo->PlayerController);
+	}
+	return CachedHeroCharacterController.IsValid() ? CachedHeroCharacterController.Get() : nullptr;
+}
+
+UWarriorHeroCombatComponent* UWarriorHeroGameplayAbility::GetWarriorHeroCombatComponentFromActorInfo()
+{
+	return GetHeroCharacterFromActorInfo()->GetWarriorCombatComponent();
 }
