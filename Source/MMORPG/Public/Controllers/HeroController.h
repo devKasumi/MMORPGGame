@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "WarriorHeroController.generated.h"
+#include "HeroController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class MMORPG_API AWarriorHeroController : public APlayerController
+class MMORPG_API AHeroController : public APlayerController
 {
 	GENERATED_BODY()
 	

@@ -7,7 +7,7 @@
 #include "WarriorHeroGameplayAbility.generated.h"
 
 class AWarriorHeroCharacter;
-class AWarriorHeroController;
+class AHeroController;
 
 /**
  * 
