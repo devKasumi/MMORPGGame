@@ -25,6 +25,14 @@ public:
 		UserObject* ContextObject, 
 		CallbackFunc Func
 	);
+
+	template<class UserObject, typename CallbackFunc>
+	void BindAbilityInputAction(
+		const UDataAsset_InputConfig* InInputConfig,
+		UserObject* ContextObject,
+		CallbackFunc InputPressedFunc,
+		CallbackFunc InputReleasedFunc
+	);
 	
 };
 
@@ -36,5 +44,32 @@ inline void UHeroInputComponent::BindNativeInputAction(const UDataAsset_InputCon
 	if (UInputAction* FoundAction = InInputConfig->FindNativeInputActionByTag(InInputTag))
 	{
 		BindAction(FoundAction, TriggerEvent, ContextObject, Func);
+	}
+}
+
+template<class UserObject, typename CallbackFunc>
+inline void UHeroInputComponent::BindAbilityInputAction(const UDataAsset_InputConfig* InInputConfig, UserObject* ContextObject, CallbackFunc InputPressedFunc, CallbackFunc InputReleasedFunc)
+{
+	checkf(InInputConfig, TEXT("Input config data asset is null, can not proceed with binding"));
+
+	for (const FHeroInputActionConfig& AbilityInputActionConfig : InInputConfig->AbilityInputActions)
+	{
+		if (!AbilityInputActionConfig.IsValid()) continue;
+
+		BindAction(
+			AbilityInputActionConfig.InputAction,
+			ETriggerEvent::Started, 
+			ContextObject, 
+			InputPressedFunc, 
+			AbilityInputActionConfig.InputTag
+		);
+
+		BindAction(
+			AbilityInputActionConfig.InputAction,
+			ETriggerEvent::Completed,
+			ContextObject,
+			InputReleasedFunc,
+			AbilityInputActionConfig.InputTag
+		);
 	}
 }

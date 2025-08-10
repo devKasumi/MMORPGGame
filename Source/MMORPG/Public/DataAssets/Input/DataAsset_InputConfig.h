@@ -23,6 +23,11 @@ struct FHeroInputActionConfig
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	UInputAction* InputAction;
 
+	bool IsValid() const
+	{
+		return InputAction && InputTag.IsValid();
+	}
+
 };
 
 /**
@@ -41,4 +46,7 @@ public:
 	TArray<FHeroInputActionConfig> NativeInputActions;
 
 	UInputAction* FindNativeInputActionByTag(const FGameplayTag& InInputTag) const;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitleProperty = "InputTag"))
+	TArray<FHeroInputActionConfig> AbilityInputActions;
 };
