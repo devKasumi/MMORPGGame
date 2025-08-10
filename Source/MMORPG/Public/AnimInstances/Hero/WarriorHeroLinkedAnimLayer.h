@@ -6,6 +6,8 @@
 #include "AnimInstances/BaseAnimInstance.h"
 #include "WarriorHeroLinkedAnimLayer.generated.h"
 
+class UWarriorHeroAnimInstance;
+
 /**
  * 
  */
@@ -13,5 +15,9 @@ UCLASS()
 class MMORPG_API UWarriorHeroLinkedAnimLayer : public UBaseAnimInstance
 {
 	GENERATED_BODY()
-	
+
+public:
+	UFUNCTION(BlueprintPure, meta = (NotBlueprintThreadSafe))
+	UWarriorHeroAnimInstance* GetHeroAnimInstance() const;
+
 };
