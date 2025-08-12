@@ -3,6 +3,7 @@
 
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/CharacterGameplayAbility.h"
+#include "Items/Weapons/WarriorHeroWeapon.h"
 
 void UCharacterAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInputTag)
 {
@@ -36,4 +37,21 @@ void UCharacterAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FWa
 
 		OutGrantedAbilitySpecHandles.AddUnique(GiveAbility(AbilitySpec));
 	}
+}
+
+void UCharacterAbilitySystemComponent::RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon)
+{
+	TArray<FGameplayAbilitySpecHandle>& GrantedAbilitySpecHandles = WarriorHeroWeapon->GetGrantedAbilitySpecHandles();
+
+	if (GrantedAbilitySpecHandles.IsEmpty()) return;
+
+	for (auto&& SpecHandle : GrantedAbilitySpecHandles)
+	{
+		if (SpecHandle.IsValid())
+		{
+			ClearAbility(SpecHandle);
+		}
+	}
+
+	GrantedAbilitySpecHandles.Empty();
 }

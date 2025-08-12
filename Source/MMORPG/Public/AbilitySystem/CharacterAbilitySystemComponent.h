@@ -7,6 +7,8 @@
 #include "CharacterTypes/CharacterStructTypes.h"
 #include "CharacterAbilitySystemComponent.generated.h"
 
+class AWarriorHeroWeapon;
+
 /**
  * 
  */
@@ -21,5 +23,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Ability", meta = (ApplyLevel = "1"))
 	void GrantHeroWeaponAbilities(const TArray<FWarriorHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandles);
+
+	UFUNCTION(BlueprintCallable, Category = "Warrior|Ability")
+	void RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon);
 
 };
