@@ -1,0 +1,44 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+
+#include "CharacterFunctionLibrary.h"
+#include "AbilitySystemBlueprintLibrary.h"
+#include "AbilitySystem/CharacterAbilitySystemComponent.h"
+
+UCharacterAbilitySystemComponent* UCharacterFunctionLibrary::NativeGetCharacterASCFromActor(AActor* InActor)
+{
+	check(InActor);
+
+	return CastChecked<UCharacterAbilitySystemComponent>(UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(InActor));
+}
+
+void UCharacterFunctionLibrary::AddGameplayTagToActorIfNone(AActor* InActor, FGameplayTag TagToAdd)
+{
+	UCharacterAbilitySystemComponent* ASC = NativeGetCharacterASCFromActor(InActor);
+
+	if (!ASC->HasMatchingGameplayTag(TagToAdd))
+	{
+		ASC->AddLooseGameplayTag(TagToAdd);
+	}
+}
+
+void UCharacterFunctionLibrary::RemoveGameplayTagFromActorIfFound(AActor* InActor, FGameplayTag TagToRemove)
+{
+	UCharacterAbilitySystemComponent* ASC = NativeGetCharacterASCFromActor(InActor);
+
+	if (ASC->HasMatchingGameplayTag(TagToRemove))
+	{
+		ASC->RemoveLooseGameplayTag(TagToRemove);
+	}
+}
+
+bool UCharacterFunctionLibrary::NativeDoesActorHaveTag(AActor* InActor, FGameplayTag TagToCheck)
+{
+	UCharacterAbilitySystemComponent* ASC = NativeGetCharacterASCFromActor(InActor);
+	return ASC->HasMatchingGameplayTag(TagToCheck);
+}
+
+void UCharacterFunctionLibrary::BP_DoesActorHaveTag(AActor* InActor, FGameplayTag TagToCheck, ECharacterConfirmType& OutConfirmType)
+{
+	OutConfirmType = NativeDoesActorHaveTag(InActor, TagToCheck) ? ECharacterConfirmType::Yes : ECharacterConfirmType::No;
+}
