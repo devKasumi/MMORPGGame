@@ -4,6 +4,7 @@
 #include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
 #include "Characters/WarriorHeroCharacter.h"
 #include "Controllers/HeroController.h"
+#include "DebugHelper.h"
 
 AWarriorHeroCharacter* UWarriorHeroGameplayAbility::GetHeroCharacterFromActorInfo()
 {
@@ -26,5 +27,15 @@ AHeroController* UWarriorHeroGameplayAbility::GetHeroControllerFromActorInfo()
 
 UWarriorHeroCombatComponent* UWarriorHeroGameplayAbility::GetWarriorHeroCombatComponentFromActorInfo()
 {
-	return GetHeroCharacterFromActorInfo()->GetWarriorCombatComponent();
+	if (GetHeroCharacterFromActorInfo()->GetWarriorCombatComponent())
+	{
+		LOG_I("Found warrior hero combat component on character: {}", Debug::ConvertToStdString(GetHeroCharacterFromActorInfo()->GetName()));
+		return GetHeroCharacterFromActorInfo()->GetWarriorCombatComponent();
+	}
+	else
+	{
+		LOG_I("No warrior hero combat component found on character: {}", Debug::ConvertToStdString(GetHeroCharacterFromActorInfo()->GetName()));
+	}
+	return nullptr;
 }
+

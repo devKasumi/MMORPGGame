@@ -75,6 +75,5 @@ Plugins/**/Intermediate/*
 DerivedDataCache/*
 
 # Large Assets
-Content/ParagonGideon/*
-Content/ParagonKallari/*
-Content/ParagonSparrow/*
+Content/ParagonAurora/*
+Content/ParagonTwinblast/*

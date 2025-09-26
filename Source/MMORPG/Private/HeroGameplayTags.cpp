@@ -12,17 +12,23 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(InputTag_UnequipAxe, "InputTag.UnequipAxe");
 	UE_DEFINE_GAMEPLAY_TAG(InputTag_LightAttack_Axe, "InputTag.LightAttack.Axe");
 	UE_DEFINE_GAMEPLAY_TAG(InputTag_HeavyAttack_Axe, "InputTag.HeavyAttack.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_LightAttack_FrostKnight, "InputTag.LightAttack.FrostKnight");
+	UE_DEFINE_GAMEPLAY_TAG(InputTag_HeavyAttack_FrostKnight, "InputTag.HeavyAttack.FrostKnight");
 
-	/** Player Tags **/
-	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Equip_Axe, "Player.Ability.Equip.Axe");
-	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Unequip_Axe, "Player.Ability.Unequip.Axe");
-	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Light_Axe, "Player.Ability.Attack.Light.Axe");
-	UE_DEFINE_GAMEPLAY_TAG(Player_Ability_Attack_Heavy_Axe, "Player.Ability.Attack.Heavy.Axe");
+	/** Warrior Hero Tags **/
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Equip_Axe, "Warrior.Ability.Equip.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Unequip_Axe, "Warrior.Ability.Unequip.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Attack_Light_Axe, "Warrior.Ability.Attack.Light.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Attack_Heavy_Axe, "Warrior.Ability.Attack.Heavy.Axe");
 
-	UE_DEFINE_GAMEPLAY_TAG(Player_Weapon_Axe, "Player.Weapon.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Weapon_Axe, "Warrior.Weapon.Axe");
 
-	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Equip_Axe, "Player.Event.Equip.Axe");
-	UE_DEFINE_GAMEPLAY_TAG(Player_Event_Unequip_Axe, "Player.Event.Unequip.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Equip_Axe, "Warrior.Event.Equip.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Unequip_Axe, "Warrior.Event.Unequip.Axe");
 
 	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
+
+	/** Frost Knight Hero Tags **/
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Light, "FrostKnight.Ability.Attack.Light");
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Heavy, "FrostKnight.Ability.Attack.Heavy");
 }

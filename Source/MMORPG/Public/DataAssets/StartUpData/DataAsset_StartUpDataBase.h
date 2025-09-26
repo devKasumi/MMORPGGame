@@ -29,7 +29,7 @@ protected:
 
 	void GrandAbilities(
 		const TArray<TSubclassOf<UCharacterGameplayAbility>>& InAbilitiesToGive, 
-		UCharacterAbilitySystemComponent* InASCToGive, 
+		UCharacterAbilitySystemComponent* InASCToGive,
 		int32 ApplyLevel = 1
 	);
 
