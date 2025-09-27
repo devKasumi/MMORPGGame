@@ -29,6 +29,13 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
 
 	/** Frost Knight Hero Tags **/
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Equip_Sword, "FrostKnight.Ability.Equip.Sword");
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Unequip_Sword, "FrostKnight.Ability.Unequip.Sword");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Light, "FrostKnight.Ability.Attack.Light");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Heavy, "FrostKnight.Ability.Attack.Heavy");
+
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Weapon_Sword, "FrostKnight.Weapon.Sword");
+
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Equip_Sword, "FrostKnight.Event.Equip.Sword");
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Unequip_Sword, "FrostKnight.Event.Unequip.Sword");
 }

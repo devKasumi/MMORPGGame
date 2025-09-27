@@ -25,6 +25,6 @@ public:
 	void GrantHeroWeaponAbilities(const TArray<FWarriorHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandles);
 
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Ability")
-	void RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon);
+	void RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon); 
 
 };

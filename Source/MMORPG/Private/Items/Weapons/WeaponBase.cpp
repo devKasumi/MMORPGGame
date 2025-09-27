@@ -8,7 +8,7 @@
 // Sets default values
 AWeaponBase::AWeaponBase()
 {
-	LOG_I("AWeaponBase::AWeaponBase(), {}", "chelsea");
+	//LOG_I("AWeaponBase::AWeaponBase(), {}", "chelsea");
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 

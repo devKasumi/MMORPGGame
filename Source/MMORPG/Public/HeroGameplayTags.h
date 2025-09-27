@@ -32,4 +32,11 @@ namespace HeroGameplayTags
 	/** Frost Knight Tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Attack_Light);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Attack_Heavy);
+
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Equip_Sword);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Unequip_Sword);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Attack_Light);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Attack_Heavy);
+
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Weapon_Sword);
 }

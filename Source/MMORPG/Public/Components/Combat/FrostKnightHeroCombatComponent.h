@@ -6,6 +6,8 @@
 #include "Components/Combat/PawnCombatComponent.h"
 #include "FrostKnightHeroCombatComponent.generated.h"
 
+class AFrostKnightHeroWeapon;
+
 /**
  * 
  */
@@ -14,7 +16,9 @@ class MMORPG_API UFrostKnightHeroCombatComponent : public UPawnCombatComponent
 {
 	GENERATED_BODY()
 
-//public:
+public:
+	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Combat")
+	AFrostKnightHeroWeapon* GetFrostKnightHeroCarriedWeaponByTag(FGameplayTag InWeaponTag) const;
 
 	
 };

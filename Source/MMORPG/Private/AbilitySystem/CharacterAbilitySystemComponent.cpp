@@ -4,6 +4,7 @@
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/CharacterGameplayAbility.h"
 #include "Items/Weapons/WarriorHeroWeapon.h"
+#include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
 
 void UCharacterAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInputTag)
 {
@@ -31,6 +32,7 @@ void UCharacterAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FWa
 		if (!AbilitySet.IsValid()) continue;
 		
 		FGameplayAbilitySpec AbilitySpec(AbilitySet.AbilityToGrant);
+		//FGameplayAbilitySpec AbilitySpec(TSubclassOf<UGameplayAbility>(AbilitySet.AbilityToGrant));
 		AbilitySpec.SourceObject = GetAvatarActor();
 		AbilitySpec.Level = ApplyLevel;
 		AbilitySpec.GetDynamicSpecSourceTags().AddTag(AbilitySet.InputTag);

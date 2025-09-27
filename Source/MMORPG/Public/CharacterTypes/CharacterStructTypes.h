@@ -7,7 +7,7 @@
 
 class UWarriorHeroLinkedAnimLayer;
 class UWarriorHeroGameplayAbility;
-class UFrostKnightHeroLinkedAnimLayer;
+class UFrostKnightLinkedAnimLayer;
 class UFrostKnightHeroGameplayAbility;
 class UInputMappingContext;
 //class UGameplayAbility;
@@ -56,17 +56,17 @@ struct FWarriorHeroWeaponData
 	TArray<FWarriorHeroAbilitySet> DefaultWeaponAbilities;
 };
 
-//USTRUCT(BlueprintType)
-//struct FFrostKnightHeroWeaponData
-//{
-//	GENERATED_BODY()
-//
-//	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-//	TSubclassOf<UFrostKnightHeroLinkedAnimLayer> WeaponAnimLayerToLink;
-//
-//	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
-//	UInputMappingContext* WeaponInputMappingContext;
-//
-//	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitleProperty = "InputTag"))
-//	TArray<FFrostKnightHeroAbilitySet> DefaultWeaponAbilities;
-//};
+USTRUCT(BlueprintType)
+struct FFrostKnightHeroWeaponData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSubclassOf<UFrostKnightLinkedAnimLayer> WeaponAnimLayerToLink;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UInputMappingContext* WeaponInputMappingContext;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, meta = (TitleProperty = "InputTag"))
+	TArray<FFrostKnightHeroAbilitySet> DefaultWeaponAbilities;
+};
