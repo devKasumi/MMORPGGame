@@ -4,7 +4,9 @@
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "AbilitySystem/Abilities/CharacterGameplayAbility.h"
 #include "Items/Weapons/WarriorHeroWeapon.h"
+#include "Items/Weapons/FrostKnightHeroWeapon.h"
 #include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
+#include "AbilitySystem/Abilities/FrostKnightHeroGameplayAbility.h"
 
 void UCharacterAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInputTag)
 {
@@ -44,6 +46,41 @@ void UCharacterAbilitySystemComponent::GrantHeroWeaponAbilities(const TArray<FWa
 void UCharacterAbilitySystemComponent::RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon)
 {
 	TArray<FGameplayAbilitySpecHandle>& GrantedAbilitySpecHandles = WarriorHeroWeapon->GetGrantedAbilitySpecHandles();
+
+	if (GrantedAbilitySpecHandles.IsEmpty()) return;
+
+	for (auto&& SpecHandle : GrantedAbilitySpecHandles)
+	{
+		if (SpecHandle.IsValid())
+		{
+			ClearAbility(SpecHandle);
+		}
+	}
+
+	GrantedAbilitySpecHandles.Empty();
+}
+
+void UCharacterAbilitySystemComponent::GrantFrostKnightWeaponAbilities(const TArray<FFrostKnightHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandles)
+{
+	if (InDefaultWeaponAbilities.IsEmpty()) return;
+
+	for (const FFrostKnightHeroAbilitySet& AbilitySet : InDefaultWeaponAbilities)
+	{
+		if (!AbilitySet.IsValid()) continue;
+
+		FGameplayAbilitySpec AbilitySpec(AbilitySet.AbilityToGrant);
+		//FGameplayAbilitySpec AbilitySpec(TSubclassOf<UGameplayAbility>(AbilitySet.AbilityToGrant));
+		AbilitySpec.SourceObject = GetAvatarActor();
+		AbilitySpec.Level = ApplyLevel;
+		AbilitySpec.GetDynamicSpecSourceTags().AddTag(AbilitySet.InputTag);
+
+		OutGrantedAbilitySpecHandles.AddUnique(GiveAbility(AbilitySpec));
+	}
+}
+
+void UCharacterAbilitySystemComponent::RemoveGrantedFrostKnightWeaponAbilities(AFrostKnightHeroWeapon* FrostKnightHeroWeapon)
+{
+	TArray<FGameplayAbilitySpecHandle>& GrantedAbilitySpecHandles = FrostKnightHeroWeapon->GetGrantedAbilitySpecHandles();
 
 	if (GrantedAbilitySpecHandles.IsEmpty()) return;
 

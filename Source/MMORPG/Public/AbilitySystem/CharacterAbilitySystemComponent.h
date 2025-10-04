@@ -8,6 +8,7 @@
 #include "CharacterAbilitySystemComponent.generated.h"
 
 class AWarriorHeroWeapon;
+class AFrostKnightHeroWeapon;
 
 /**
  * 
@@ -25,6 +26,11 @@ public:
 	void GrantHeroWeaponAbilities(const TArray<FWarriorHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandles);
 
 	UFUNCTION(BlueprintCallable, Category = "Warrior|Ability")
-	void RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon); 
+	void RemoveGrantedHeroWeaponAbilities(AWarriorHeroWeapon* WarriorHeroWeapon);
 
+	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Ability", meta = (ApplyLevel = "1"))
+	void GrantFrostKnightWeaponAbilities(const TArray<FFrostKnightHeroAbilitySet>& InDefaultWeaponAbilities, int32 ApplyLevel, TArray<FGameplayAbilitySpecHandle>& OutGrantedAbilitySpecHandles);
+
+	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Ability")
+	void RemoveGrantedFrostKnightWeaponAbilities(AFrostKnightHeroWeapon* FrostKnightHeroWeapon);
 };
