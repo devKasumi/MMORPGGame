@@ -22,7 +22,7 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(GetRootComponent());
-	SpringArm->TargetArmLength = 200.f;
+	SpringArm->TargetArmLength = 400.f;
 	SpringArm->SocketOffset = FVector(0.f, 55.f, 65.f);
 	SpringArm->bUsePawnControlRotation = true;
 
