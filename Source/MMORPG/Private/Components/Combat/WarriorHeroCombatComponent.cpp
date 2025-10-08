@@ -10,12 +10,12 @@ AWarriorHeroWeapon* UWarriorHeroCombatComponent::GetWarriorHeroCarriedWeaponByTa
 	AWarriorHeroWeapon* warriorHeroWeapon = Cast<AWarriorHeroWeapon>(GetCharcterCarriedWeaponByTag(InWeaponTag));
 	if (warriorHeroWeapon)
 	{
-		LOG_I("Found warrior hero weapon for tag: {}", Debug::ConvertToStdString(InWeaponTag.ToString()));
+		//LOG_I("Found warrior hero weapon for tag: {}", Debug::ConvertToStdString(InWeaponTag.ToString()));
 		return warriorHeroWeapon;
 	}
 	else
 	{
-		LOG_I("chelsea cscscsc No warrior hero weapon found for tag: {}", Debug::ConvertToStdString(InWeaponTag.ToString()));
+		//LOG_I("chelsea cscscsc No warrior hero weapon found for tag: {}", Debug::ConvertToStdString(InWeaponTag.ToString()));
 	}
 	return nullptr;
 }

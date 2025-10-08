@@ -29,12 +29,12 @@ AWeaponBase* UPawnCombatComponent::GetCharcterCarriedWeaponByTag(FGameplayTag In
 		//return CharacterCarriedWeaponMap[InWeaponTagToGet];
 		if (AWeaponBase* const* FoundWeapon = CharacterCarriedWeaponMap.Find(InWeaponTagToGet))
 		{
-			LOG_I("pokemon Found weapon for tag: {}", Debug::ConvertToStdString(InWeaponTagToGet.ToString()));
+			//LOG_I("pokemon Found weapon for tag: {}", Debug::ConvertToStdString(InWeaponTagToGet.ToString()));
 			return *FoundWeapon;
 		}
 	}
 
-	LOG_I("xDDDD No carried weapon found for tag: {}", Debug::ConvertToStdString(InWeaponTagToGet.ToString()));
+	//LOG_I("xDDDD No carried weapon found for tag: {}", Debug::ConvertToStdString(InWeaponTagToGet.ToString()));
 
 	return nullptr;
 }
@@ -43,9 +43,9 @@ AWeaponBase* UPawnCombatComponent::GetCharacterCurrentEquippedWeapon() const
 {
 	if (!CurrentEquippedWeaponTag.IsValid())
 	{
-		LOG_I("No currently equipped weapon tag is set");
+		//LOG_I("No currently equipped weapon tag is set");
 		return nullptr;
 	}
-	LOG_I("Getting currently equipped weapon for tag: {}", Debug::ConvertToStdString(CurrentEquippedWeaponTag.ToString()));
+	//LOG_I("Getting currently equipped weapon for tag: {}", Debug::ConvertToStdString(CurrentEquippedWeaponTag.ToString()));
 	return GetCharcterCarriedWeaponByTag(CurrentEquippedWeaponTag);
 }

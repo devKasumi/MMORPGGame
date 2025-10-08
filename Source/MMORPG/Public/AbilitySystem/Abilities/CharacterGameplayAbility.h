@@ -34,10 +34,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "CharacterAbility")
 	ECharacterAbilityActivationPolicy AbilityActivationPolicy = ECharacterAbilityActivationPolicy::OnTriggered;
 
-	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	UFUNCTION(BlueprintPure, Category = "Character|Ability")
 	UPawnCombatComponent* GetPawnCombatComponentFromActorInfo() const;
 
-	UFUNCTION(BlueprintPure, Category = "Warrior|Ability")
+	UFUNCTION(BlueprintPure, Category = "Character|Ability")
 	UCharacterAbilitySystemComponent* GetCharacterAbilitySystemComponentFromActorInfo() const;
 
 
