@@ -11,6 +11,21 @@ void UDataAsset_StartUpDataBase::GiveToAbilitySystemComponent(UCharacterAbilityS
 
 	GrandAbilities(ActivateOnGivenAbilities, InASCToGive, ApplyLevel);
 	GrandAbilities(ReactiveAbilities, InASCToGive, ApplyLevel);
+
+	if (!StartUpGameplayEffects.IsEmpty())
+	{
+		for (const TSubclassOf<UGameplayEffect>& EffectClass : StartUpGameplayEffects)
+		{
+			if (!EffectClass) continue;
+			
+			UGameplayEffect* EffectCDO = EffectClass->GetDefaultObject<UGameplayEffect>();
+			InASCToGive->ApplyGameplayEffectToSelf(
+				EffectCDO,
+				ApplyLevel,
+				InASCToGive->MakeEffectContext()
+			);
+		}
+	}
 }
 
 void UDataAsset_StartUpDataBase::GrandAbilities(const TArray<TSubclassOf<UCharacterGameplayAbility>>& InAbilitiesToGive, UCharacterAbilitySystemComponent* InASCToGive, int32 ApplyLevel)

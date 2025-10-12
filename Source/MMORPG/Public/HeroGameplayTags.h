@@ -6,7 +6,7 @@
 
 namespace HeroGameplayTags
 {
-	/** INput Tags **/
+	/** Input Tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Move);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Look);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_EquipAxe);
@@ -43,4 +43,7 @@ namespace HeroGameplayTags
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Equip_Sword);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Unequip_Sword);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Scale_Sword);
+
+	/** Enemy Tags **/
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
 }
