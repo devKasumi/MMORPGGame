@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
@@ -7,6 +7,10 @@
 #include "Items/Weapons/FrostKnightHeroWeapon.h"
 #include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
 #include "AbilitySystem/Abilities/FrostKnightHeroGameplayAbility.h"
+//#include "GameFramework/Character.h"
+//#include "Components/SkeletalMeshComponent.h"
+//#include "Characters/FrostKnightHeroCharacter.h"
+//#include "Components/PoseableMeshComponent.h"
 
 void UCharacterAbilitySystemComponent::OnAbilityInputPressed(const FGameplayTag& InInputTag)
 {

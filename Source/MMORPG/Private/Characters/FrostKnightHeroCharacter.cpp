@@ -9,6 +9,7 @@
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "DataAssets/StartUpData/DataAsset_FrostKnightStartUpData.h"
 #include "Components/Combat/FrostKnightHeroCombatComponent.h"
+#include "Components/PoseableMeshComponent.h"
 
 #include "DebugHelper.h"
 
@@ -36,6 +37,14 @@ AFrostKnightHeroCharacter::AFrostKnightHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 
 	FrostKnightCombatComponent = CreateDefaultSubobject<UFrostKnightHeroCombatComponent>(TEXT("FrostKnightCombatComponent"));
+
+	//PoseableMesh = CreateDefaultSubobject<UPoseableMeshComponent>(TEXT("PoseableMesh"));
+	//PoseableMesh->SetupAttachment(GetMesh());
+	//PoseableMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	//PoseableMesh->SetSkeletalMesh(GetMesh()->SkeletalMesh);
+
+	//LOG_I("Poseable Mesh: {}", Debug::ConvertToStdString(PoseableMesh->SkeletalMesh.GetFullName()));
+	
 }
 
 void AFrostKnightHeroCharacter::PossessedBy(AController* NewController)
@@ -49,4 +58,6 @@ void AFrostKnightHeroCharacter::PossessedBy(AController* NewController)
 			LoadedData->GiveToAbilitySystemComponent(CharacterAbilitySystemComponent);
 		}
 	}
+
+	
 }

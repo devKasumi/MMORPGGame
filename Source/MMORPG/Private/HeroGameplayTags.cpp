@@ -40,4 +40,5 @@ namespace HeroGameplayTags
 
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Equip_Sword, "FrostKnight.Event.Equip.Sword");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Unequip_Sword, "FrostKnight.Event.Unequip.Sword");
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Scale_Sword, "FrostKnight.Event.Scale.Sword");
 }

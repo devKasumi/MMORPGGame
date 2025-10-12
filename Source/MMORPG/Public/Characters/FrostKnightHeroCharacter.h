@@ -11,6 +11,7 @@ class UCameraComponent;
 class UDataAsset_InputConfig;
 struct FInputActionValue;
 class UFrostKnightHeroCombatComponent;
+class UPoseableMeshComponent;
 
 /**
  * 
@@ -32,6 +33,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	UFrostKnightHeroCombatComponent* FrostKnightCombatComponent;
+	
 
 public:
 	FORCEINLINE UFrostKnightHeroCombatComponent* GetFrostKnightCombatComponent() const { return FrostKnightCombatComponent; }
