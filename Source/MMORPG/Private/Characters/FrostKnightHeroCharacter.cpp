@@ -47,6 +47,11 @@ AFrostKnightHeroCharacter::AFrostKnightHeroCharacter()
 	
 }
 
+UPawnCombatComponent* AFrostKnightHeroCharacter::GetPawnCombatComponent() const
+{
+	return FrostKnightCombatComponent;
+}
+
 void AFrostKnightHeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);

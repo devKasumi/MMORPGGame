@@ -9,6 +9,14 @@
 
 class AWeaponBase;
 
+UENUM(BlueprintType)
+enum class EToggleDamageType : uint8
+{
+	CurrentEquippedWeapon,
+	LeftHand,
+	RightHand
+};
+
 /**
  * 
  */
@@ -18,19 +26,20 @@ class MMORPG_API UPawnCombatComponent : public UPawnExtensionComponentBase
 	GENERATED_BODY()
 
 public:
-	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
+	UFUNCTION(BlueprintCallable, Category = "Character|Combat")
 	void RegisterSpawnedWeapon(FGameplayTag InWeaponTagToRegister, AWeaponBase* InWeaponToRegister, bool bRegisterAsEquippedWeapon = false);
 
-	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
+	UFUNCTION(BlueprintCallable, Category = "Character|Combat")
 	AWeaponBase* GetCharcterCarriedWeaponByTag(FGameplayTag InWeaponTagToGet) const;
 
-	UPROPERTY(BlueprintReadWrite, Category = "Warrior|Combat")
+	UPROPERTY(BlueprintReadWrite, Category = "Character|Combat")
 	FGameplayTag CurrentEquippedWeaponTag;
 
-	UFUNCTION(BlueprintCallable, Category = "Warrior|Combat")
+	UFUNCTION(BlueprintCallable, Category = "Character|Combat")
 	AWeaponBase* GetCharacterCurrentEquippedWeapon() const;
 
-
+	UFUNCTION(BlueprintCallable, Category = "Character|Combat")
+	void ToggleWeaponCollision(bool bEnableCollision, EToggleDamageType ToggleDamageType = EToggleDamageType::CurrentEquippedWeapon);
 
 
 private:

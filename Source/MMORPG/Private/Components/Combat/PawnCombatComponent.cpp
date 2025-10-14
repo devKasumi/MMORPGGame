@@ -3,6 +3,7 @@
 
 #include "Components/Combat/PawnCombatComponent.h"
 #include "Items/Weapons/WeaponBase.h"
+#include "Components/BoxComponent.h"
 
 #include "DebugHelper.h"
 
@@ -48,4 +49,27 @@ AWeaponBase* UPawnCombatComponent::GetCharacterCurrentEquippedWeapon() const
 	}
 	//LOG_I("Getting currently equipped weapon for tag: {}", Debug::ConvertToStdString(CurrentEquippedWeaponTag.ToString()));
 	return GetCharcterCarriedWeaponByTag(CurrentEquippedWeaponTag);
+}
+
+void UPawnCombatComponent::ToggleWeaponCollision(bool bEnableCollision, EToggleDamageType ToggleDamageType)
+{
+	if (ToggleDamageType == EToggleDamageType::CurrentEquippedWeapon)
+	{
+		AWeaponBase* WeaponToToggle = GetCharacterCurrentEquippedWeapon();
+
+		check(WeaponToToggle);
+
+		if (bEnableCollision)
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+			LOG_I(FColor::Blue, "{} collision enabled", WeaponToToggle->GetName());
+		}
+		else
+		{
+			WeaponToToggle->GetWeaponCollisionBox()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+			LOG_I(FColor::Red, "{} collision disabled", WeaponToToggle->GetName());
+		}
+	}
+
+	//TODO: Handle body collision boxes
 }

@@ -72,6 +72,11 @@ UAbilitySystemComponent* ABaseCharacter::GetAbilitySystemComponent() const
 	return GetCharacterAbilitySystemComponent();
 }
 
+UPawnCombatComponent* ABaseCharacter::GetPawnCombatComponent() const
+{
+	return nullptr;
+}
+
 void ABaseCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();

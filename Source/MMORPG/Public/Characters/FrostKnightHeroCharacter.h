@@ -24,6 +24,10 @@ class MMORPG_API AFrostKnightHeroCharacter : public ABaseCharacter
 public:
 	AFrostKnightHeroCharacter();
 
+	//~ Begin IPawnCombatInterface Interface.
+	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
+	//~ End IPawnCombatInterface Interface
+
 protected:
 	//~ Begin APawn Interface.
 	virtual void PossessedBy(AController* NewController) override;

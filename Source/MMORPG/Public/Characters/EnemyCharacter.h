@@ -19,6 +19,10 @@ class MMORPG_API AEnemyCharacter : public ABaseCharacter
 public:
 	AEnemyCharacter();
 
+	//~ Begin IPawnCombatInterface Interface.
+	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
+	//~ End IPawnCombatInterface Interface
+
 protected:
 	//~ Begin APawn Interface.
 	virtual void PossessedBy(AController* NewController) override;

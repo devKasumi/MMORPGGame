@@ -26,6 +26,11 @@ AEnemyCharacter::AEnemyCharacter()
 	EnemyCombatComponent = CreateDefaultSubobject<UEnemyCombatComponent>(TEXT("EnemyCombatComponent"));
 }
 
+UPawnCombatComponent* AEnemyCharacter::GetPawnCombatComponent() const
+{
+	return EnemyCombatComponent;
+}
+
 void AEnemyCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
@@ -37,7 +42,7 @@ void AEnemyCharacter::InitEnemyStartUpData()
 {
 	if (CharacterStartUpData.IsNull())
 	{
-		LOG_I("CharacterStartUpData Null");
+		//LOG_I(FColor::Red, "CharacterStartUpData Null");
 		return;
 	}
 
@@ -49,8 +54,6 @@ void AEnemyCharacter::InitEnemyStartUpData()
 				if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartUpData.Get())
 				{
 					LoadedData->GiveToAbilitySystemComponent(CharacterAbilitySystemComponent);
-
-					LOG_I("Enemy Start Up Data Loaded");
 				}
 			}
 		)
