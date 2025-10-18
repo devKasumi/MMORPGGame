@@ -4,6 +4,9 @@
 #include "AbilitySystem/Abilities/WarriorHeroGameplayAbility.h"
 #include "Characters/WarriorHeroCharacter.h"
 #include "Controllers/HeroController.h"
+#include "AbilitySystem/CharacterAbilitySystemComponent.h"
+#include "HeroGameplayTags.h"
+
 #include "DebugHelper.h"
 
 AWarriorHeroCharacter* UWarriorHeroGameplayAbility::GetHeroCharacterFromActorInfo()
@@ -37,5 +40,36 @@ UWarriorHeroCombatComponent* UWarriorHeroGameplayAbility::GetWarriorHeroCombatCo
 		//LOG_I("No warrior hero combat component found on character: {}", Debug::ConvertToStdString(GetHeroCharacterFromActorInfo()->GetName()));
 	}
 	return nullptr;
+}
+
+FGameplayEffectSpecHandle UWarriorHeroGameplayAbility::MakeHeroDamageEffectSpecHandle(TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag, int32 InUsedComboCount)
+{
+	check(EffectClass);
+
+	FGameplayEffectContextHandle ContextHandle = GetCharacterAbilitySystemComponentFromActorInfo()->MakeEffectContext();
+	ContextHandle.SetAbility(this);
+	ContextHandle.AddSourceObject(GetAvatarActorFromActorInfo());
+	ContextHandle.AddInstigator(GetAvatarActorFromActorInfo(), GetAvatarActorFromActorInfo());
+
+	FGameplayEffectSpecHandle EffectSpecHandle = GetCharacterAbilitySystemComponentFromActorInfo()->MakeOutgoingSpec(
+		EffectClass,
+		GetAbilityLevel(),
+		ContextHandle
+	);
+
+	EffectSpecHandle.Data->SetSetByCallerMagnitude(
+		HeroGameplayTags::Shared_SetByCaller_BaseDamage,
+		InWeaponBaseDamage
+	);
+
+	if (InCurrentAttackTypeTag.IsValid())
+	{
+		EffectSpecHandle.Data->SetSetByCallerMagnitude(
+			InCurrentAttackTypeTag,
+			InUsedComboCount
+		);
+	}
+
+	return EffectSpecHandle;
 }
 

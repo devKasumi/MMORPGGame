@@ -28,7 +28,8 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Equip_Axe, "Warrior.Event.Equip.Axe");
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Unequip_Axe, "Warrior.Event.Unequip.Axe");
 
-	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_SetByCaller_AttackType_Light, "Warrior.SetByCaller.AttackType.Light");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_SetByCaller_AttackType_Heavy, "Warrior.SetByCaller.AttackType.Heavy");
 
 	/** Frost Knight Hero Tags **/
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Equip_Sword, "FrostKnight.Ability.Equip.Sword");
@@ -43,5 +44,16 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Scale_Sword, "FrostKnight.Event.Scale.Sword");
 
 	/** Enemy Tags **/
+	UE_DEFINE_GAMEPLAY_TAG(Enemy_Ability_Melee, "Enemy.Ability.Melee");
+	UE_DEFINE_GAMEPLAY_TAG(Enemy_Ability_Ranged, "Enemy.Ability.Ranged");
 	UE_DEFINE_GAMEPLAY_TAG(Enemy_Weapon, "Enemy.Weapon");
+
+	/** Shared tags **/
+	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Ability_HitReact,"Shared.Ability.HitReact");
+
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Event_HitReact,"Shared.Event.HitReact");
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Event_MeleeHit, "Shared.Event.MeleeHit");
+
+	UE_DEFINE_GAMEPLAY_TAG(Shared_SetByCaller_BaseDamage, "Shared.SetByCaller.BaseDamage");
 }

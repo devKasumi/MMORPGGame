@@ -29,7 +29,8 @@ namespace HeroGameplayTags
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Warrior_Event_Equip_Axe);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Warrior_Event_Unequip_Axe);
 
-	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Status_JumpToFinisher);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Warrior_SetByCaller_AttackType_Light);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Warrior_SetByCaller_AttackType_Heavy);
 
 	/** Frost Knight Tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Attack_Light);
@@ -45,5 +46,15 @@ namespace HeroGameplayTags
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Scale_Sword);
 
 	/** Enemy Tags **/
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Ability_Melee);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Ability_Ranged);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
+
+	/** Shared tags **/
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Status_JumpToFinisher);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Ability_HitReact);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Event_HitReact);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Event_MeleeHit);
+
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_SetByCaller_BaseDamage);
 }
