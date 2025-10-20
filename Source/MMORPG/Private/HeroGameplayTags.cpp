@@ -23,10 +23,13 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Attack_Light_Axe, "Warrior.Ability.Attack.Light.Axe");
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_Attack_Heavy_Axe, "Warrior.Ability.Attack.Heavy.Axe");
 
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Ability_HitPause, "Warrior.Ability.HitPause");
+
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Weapon_Axe, "Warrior.Weapon.Axe");
 
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Equip_Axe, "Warrior.Event.Equip.Axe");
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_Unequip_Axe, "Warrior.Event.Unequip.Axe");
+	UE_DEFINE_GAMEPLAY_TAG(Warrior_Event_HitPause, "Warrior.Event.HitPause");
 
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_SetByCaller_AttackType_Light, "Warrior.SetByCaller.AttackType.Light");
 	UE_DEFINE_GAMEPLAY_TAG(Warrior_SetByCaller_AttackType_Heavy, "Warrior.SetByCaller.AttackType.Heavy");
@@ -51,9 +54,11 @@ namespace HeroGameplayTags
 	/** Shared tags **/
 	UE_DEFINE_GAMEPLAY_TAG(Player_Status_JumpToFinisher, "Player.Status.JumpToFinisher");
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Ability_HitReact,"Shared.Ability.HitReact");
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Ability_Death,"Shared.Ability.Death");
 
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Event_HitReact,"Shared.Event.HitReact");
 	UE_DEFINE_GAMEPLAY_TAG(Shared_Event_MeleeHit, "Shared.Event.MeleeHit");
 
 	UE_DEFINE_GAMEPLAY_TAG(Shared_SetByCaller_BaseDamage, "Shared.SetByCaller.BaseDamage");
+	UE_DEFINE_GAMEPLAY_TAG(Shared_Status_Dead, "Shared.Status.Dead");
 }

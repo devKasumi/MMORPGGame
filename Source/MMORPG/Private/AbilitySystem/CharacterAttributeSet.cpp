@@ -3,6 +3,8 @@
 
 #include "AbilitySystem/CharacterAttributeSet.h"
 #include "GameplayEffectExtension.h"
+#include "CharacterFunctionLibrary.h"
+#include "HeroGameplayTags.h"
 
 #include "DebugHelper.h"
 
@@ -38,14 +40,13 @@ void UCharacterAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModC
 		const float NewCurrentHealth = FMath::Clamp(OldHealth - DamageDone, 0.f, GetMaxHealth());
 		SetCurrentHealth(NewCurrentHealth);
 
-		LOG_I(FColor::MakeRandomColor(), "Old Health: {}, Damage Done: {}, NewCurrentHealth: {}", OldHealth, DamageDone, NewCurrentHealth);
+		//LOG_I(FColor::MakeRandomColor(), "Old Health: {}, Damage Done: {}, NewCurrentHealth: {}", OldHealth, DamageDone, NewCurrentHealth);
 
 		//TODO: Notify the UI
 
-		//TODO: Handle character death
 		if (NewCurrentHealth == 0.f)
 		{
-
+			UCharacterFunctionLibrary::AddGameplayTagToActorIfNone(Data.Target.GetAvatarActor(), HeroGameplayTags::Shared_Status_Dead);
 		}
 	}
 }
