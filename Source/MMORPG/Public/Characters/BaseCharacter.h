@@ -7,6 +7,7 @@
 #include "AbilitySystemInterface.h"
 #include "GameplayTagContainer.h"
 #include "Interfaces/PawnCombatInterface.h"
+#include "Interfaces/PawnUIInterface.h"
 #include "BaseCharacter.generated.h"
 
 class USpringArmComponent;
@@ -18,7 +19,7 @@ class UCharacterAttributeSet;
 class UDataAsset_StartUpDataBase;
 
 UCLASS()
-class MMORPG_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface, public IPawnCombatInterface
+class MMORPG_API ABaseCharacter : public ACharacter, public IAbilitySystemInterface, public IPawnCombatInterface, public IPawnUIInterface
 {
 	GENERATED_BODY()
 
@@ -35,6 +36,10 @@ public:
 	//~ Begin IPawnCombatInterface Interface.
 	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
 	//~ End IPawnCombatInterface Interface
+
+	//~ Begin IPawnUIInterface Interface.
+	virtual UPawnUIComponent* GetPawnUIComponent() const override;
+	//~ End IPawnUIInterface Interface
 
 protected:
 #pragma region Components

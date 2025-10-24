@@ -43,11 +43,16 @@ namespace HeroGameplayTags
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Equip_Sword);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_Unequip_Sword);
 
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Ability_HitPause);
+
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Weapon_Sword);
 
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Equip_Sword);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Unequip_Sword);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_Scale_Sword);
+
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_HitPause);
+
 
 	/** Enemy Tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Ability_Melee);

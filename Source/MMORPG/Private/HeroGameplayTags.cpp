@@ -40,11 +40,15 @@ namespace HeroGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Light, "FrostKnight.Ability.Attack.Light");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_Attack_Heavy, "FrostKnight.Ability.Attack.Heavy");
 
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Ability_HitPause, "FrostKnight.Ability.HitPause");
+
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Weapon_Sword, "FrostKnight.Weapon.Sword");
 
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Equip_Sword, "FrostKnight.Event.Equip.Sword");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Unequip_Sword, "FrostKnight.Event.Unequip.Sword");
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_Scale_Sword, "FrostKnight.Event.Scale.Sword");
+
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_HitPause, "FrostKnight.Event.HitPause");
 
 	/** Enemy Tags **/
 	UE_DEFINE_GAMEPLAY_TAG(Enemy_Ability_Melee, "Enemy.Ability.Melee");

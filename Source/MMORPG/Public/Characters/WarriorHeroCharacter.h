@@ -11,6 +11,7 @@ class UCameraComponent;
 class UDataAsset_InputConfig;
 struct FInputActionValue;
 class UWarriorHeroCombatComponent;
+class UHeroUIComponent;
 
 /**
  * 
@@ -28,6 +29,11 @@ public:
 	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
 	//~ End IPawnCombatInterface Interface
 
+	//~ Begin IPawnUIInterface Interface.
+	virtual UPawnUIComponent* GetPawnUIComponent() const override;
+	virtual UHeroUIComponent* GetHeroUIComponent() const override;
+	//~ End IPawnUIInterface Interface
+
 protected:
 
 	//~ Begin APawn Interface.
@@ -38,6 +44,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	UWarriorHeroCombatComponent* WarriorCombatComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	UHeroUIComponent* WarriorUIComponent;
 
 public:
 	FORCEINLINE UWarriorHeroCombatComponent* GetWarriorCombatComponent() const { return WarriorCombatComponent; }

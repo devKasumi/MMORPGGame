@@ -10,6 +10,7 @@
 #include "DataAssets/StartUpData/DataAsset_FrostKnightStartUpData.h"
 #include "Components/Combat/FrostKnightHeroCombatComponent.h"
 #include "Components/PoseableMeshComponent.h"
+#include "Components/UI/HeroUIComponent.h"
 
 #include "DebugHelper.h"
 
@@ -37,6 +38,7 @@ AFrostKnightHeroCharacter::AFrostKnightHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 
 	FrostKnightCombatComponent = CreateDefaultSubobject<UFrostKnightHeroCombatComponent>(TEXT("FrostKnightCombatComponent"));
+	FrostKnightUIComponent = CreateDefaultSubobject<UHeroUIComponent>(TEXT("FrostKnightUIComponent"));
 
 	//PoseableMesh = CreateDefaultSubobject<UPoseableMeshComponent>(TEXT("PoseableMesh"));
 	//PoseableMesh->SetupAttachment(GetMesh());
@@ -50,6 +52,16 @@ AFrostKnightHeroCharacter::AFrostKnightHeroCharacter()
 UPawnCombatComponent* AFrostKnightHeroCharacter::GetPawnCombatComponent() const
 {
 	return FrostKnightCombatComponent;
+}
+
+UPawnUIComponent* AFrostKnightHeroCharacter::GetPawnUIComponent() const
+{
+	return FrostKnightUIComponent;
+}
+
+UHeroUIComponent* AFrostKnightHeroCharacter::GetHeroUIComponent() const
+{
+	return FrostKnightUIComponent;
 }
 
 void AFrostKnightHeroCharacter::PossessedBy(AController* NewController)

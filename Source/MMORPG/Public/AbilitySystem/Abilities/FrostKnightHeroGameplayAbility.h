@@ -27,6 +27,9 @@ public:
 
 	UFUNCTION(BlueprintPure, Category = "FrostKnight|Ability")
 	UFrostKnightHeroCombatComponent* GetFrostKnightHeroCombatComponentFromActorInfo();
+
+	UFUNCTION(BlueprintPure, Category = "FrostKnight|Ability")
+	FGameplayEffectSpecHandle MakeFrostKnightDamageEffectSpecHandle(TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag, int32 InUsedComboCount);
 	
 private:
 	TWeakObjectPtr<AFrostKnightHeroCharacter> CachedFrostKnightHeroCharacter;

@@ -20,5 +20,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Combat")
 	AFrostKnightHeroWeapon* GetFrostKnightHeroCarriedWeaponByTag(FGameplayTag InWeaponTag) const;
 
-	
+	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Combat")
+	AFrostKnightHeroWeapon* GetFrostKnightHeroCurrentEquippedWeapon() const;
+
+	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Combat")
+	float GetFrostKnightHeroCurrentEquippedWeaponDamageAtLevel(float InLevel) const;
+
+	virtual void OnHitTargetActor(AActor* HitActor) override;
+	virtual void OnWeaponPulledFromTargetActor(AActor* InteractedActor) override;
+
 };

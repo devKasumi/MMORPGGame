@@ -9,6 +9,7 @@
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "DataAssets/StartUpData/DataAsset_WarriorHeroStartUpData.h"
 #include "Components/Combat/WarriorHeroCombatComponent.h"
+#include "Components/UI/HeroUIComponent.h"
 
 #include "DebugHelper.h"
 
@@ -36,11 +37,22 @@ AWarriorHeroCharacter::AWarriorHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 
 	WarriorCombatComponent = CreateDefaultSubobject<UWarriorHeroCombatComponent>(TEXT("WarriorCombatComponent"));
+	WarriorUIComponent = CreateDefaultSubobject<UHeroUIComponent>(TEXT("WarriorUIComponent"));
 }
 
 UPawnCombatComponent* AWarriorHeroCharacter::GetPawnCombatComponent() const
 {
 	return WarriorCombatComponent;
+}
+
+UPawnUIComponent* AWarriorHeroCharacter::GetPawnUIComponent() const
+{
+	return WarriorUIComponent;
+}
+
+UHeroUIComponent* AWarriorHeroCharacter::GetHeroUIComponent() const
+{
+	return WarriorUIComponent;
 }
 
 void AWarriorHeroCharacter::PossessedBy(AController* NewController)

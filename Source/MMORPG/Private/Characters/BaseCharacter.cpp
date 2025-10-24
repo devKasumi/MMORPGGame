@@ -77,6 +77,11 @@ UPawnCombatComponent* ABaseCharacter::GetPawnCombatComponent() const
 	return nullptr;
 }
 
+UPawnUIComponent* ABaseCharacter::GetPawnUIComponent() const
+{
+	return nullptr;
+}
+
 void ABaseCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();

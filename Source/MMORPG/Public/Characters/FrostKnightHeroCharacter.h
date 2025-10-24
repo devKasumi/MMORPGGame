@@ -12,6 +12,7 @@ class UDataAsset_InputConfig;
 struct FInputActionValue;
 class UFrostKnightHeroCombatComponent;
 class UPoseableMeshComponent;
+class UHeroUIComponent;
 
 /**
  * 
@@ -28,6 +29,11 @@ public:
 	virtual UPawnCombatComponent* GetPawnCombatComponent() const override;
 	//~ End IPawnCombatInterface Interface
 
+	//~ Begin IPawnUIInterface Interface.
+	virtual UPawnUIComponent* GetPawnUIComponent() const override;
+	virtual UHeroUIComponent* GetHeroUIComponent() const override;
+	//~ End IPawnUIInterface Interface
+
 protected:
 	//~ Begin APawn Interface.
 	virtual void PossessedBy(AController* NewController) override;
@@ -38,6 +44,8 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat", meta = (AllowPrivateAccess = "true"))
 	UFrostKnightHeroCombatComponent* FrostKnightCombatComponent;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "UI", meta = (AllowPrivateAccess = "true"))
+	UHeroUIComponent* FrostKnightUIComponent;
 
 public:
 	FORCEINLINE UFrostKnightHeroCombatComponent* GetFrostKnightCombatComponent() const { return FrostKnightCombatComponent; }
