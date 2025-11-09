@@ -50,6 +50,9 @@ namespace HeroGameplayTags
 
 	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_Event_HitPause, "FrostKnight.Event.HitPause");
 
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_SetByCaller_AttackType_Light, "FrostKnight.SetByCaller.AttackType.Light");
+	UE_DEFINE_GAMEPLAY_TAG(FrostKnight_SetByCaller_AttackType_Heavy, "FrostKnight.SetByCaller.AttackType.Heavy");
+
 	/** Enemy Tags **/
 	UE_DEFINE_GAMEPLAY_TAG(Enemy_Ability_Melee, "Enemy.Ability.Melee");
 	UE_DEFINE_GAMEPLAY_TAG(Enemy_Ability_Ranged, "Enemy.Ability.Ranged");

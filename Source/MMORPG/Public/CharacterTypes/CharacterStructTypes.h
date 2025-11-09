@@ -57,6 +57,9 @@ struct FWarriorHeroWeaponData
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FScalableFloat WeaponBaseDamage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftObjectPtr<UTexture2D> SoftWeaponIconTexture;
 };
 
 USTRUCT(BlueprintType)
@@ -75,4 +78,7 @@ struct FFrostKnightHeroWeaponData
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
 	FScalableFloat WeaponBaseDamage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	TSoftObjectPtr<UTexture2D> SoftWeaponIconTexture;
 };

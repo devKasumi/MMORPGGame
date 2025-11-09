@@ -53,6 +53,9 @@ namespace HeroGameplayTags
 
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_Event_HitPause);
 
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_SetByCaller_AttackType_Light);
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(FrostKnight_SetByCaller_AttackType_Heavy);
+
 
 	/** Enemy Tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Ability_Melee);

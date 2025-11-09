@@ -6,6 +6,8 @@
 #include "Engine/AssetManager.h"
 #include "DataAssets/StartUpData/DataAsset_EnemyStartUpData.h"
 #include "Components/UI/EnemyUIComponent.h"
+#include "Components/WidgetComponent.h"
+#include "Widgets/WidgetBase.h"
 
 #include "DebugHelper.h"
 
@@ -24,7 +26,9 @@ AEnemyCharacter::AEnemyCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 1000.f;
 
 	EnemyCombatComponent = CreateDefaultSubobject<UEnemyCombatComponent>(TEXT("EnemyCombatComponent"));
-	EnemyUIComponent = CreateDefaultSubobject<UEnemyUIComponent>(TEXT("UEnemyUIComponent"));
+	EnemyUIComponent = CreateDefaultSubobject<UEnemyUIComponent>(TEXT("EnemyUIComponent"));
+	EnemyHealthWidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("EnemyHealthWidgetComponent"));
+	EnemyHealthWidgetComponent->SetupAttachment(GetMesh());
 }
 
 UPawnCombatComponent* AEnemyCharacter::GetPawnCombatComponent() const
@@ -40,6 +44,17 @@ UPawnUIComponent* AEnemyCharacter::GetPawnUIComponent() const
 UEnemyUIComponent* AEnemyCharacter::GetEnemyUIComponent() const
 {
 	return EnemyUIComponent;
+}
+
+void AEnemyCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (UWidgetBase* EnemyHealthWidget = Cast<UWidgetBase>(EnemyHealthWidgetComponent->GetUserWidgetObject()))
+	{
+		EnemyHealthWidget->InitEnemyCreatedWidget(this);
+	}
+	
 }
 
 void AEnemyCharacter::PossessedBy(AController* NewController)
