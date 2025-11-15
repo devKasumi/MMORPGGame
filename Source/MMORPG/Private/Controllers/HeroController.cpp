@@ -3,3 +3,12 @@
 
 #include "Controllers/HeroController.h"
 
+AHeroController::AHeroController()
+{
+	HeroTeamId = FGenericTeamId(0);
+}
+
+FGenericTeamId AHeroController::GetGenericTeamId() const
+{
+	return HeroTeamId;
+}
