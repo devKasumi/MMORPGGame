@@ -33,4 +33,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "FrostKnight|Ability")
 	void RemoveGrantedFrostKnightWeaponAbilities(AFrostKnightHeroWeapon* FrostKnightHeroWeapon);
+
+	UFUNCTION(BlueprintCallable, Category = "Character|Ability")
+	bool TryActivateAbilityByTag(FGameplayTag AbilityTagToActivate);
 };

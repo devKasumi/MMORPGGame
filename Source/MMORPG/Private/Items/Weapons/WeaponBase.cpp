@@ -3,6 +3,8 @@
 
 #include "Items/Weapons/WeaponBase.h"
 #include "Components/BoxComponent.h"
+#include "CharacterFunctionLibrary.h"
+
 #include "DebugHelper.h"
 
 // Sets default values
@@ -31,13 +33,10 @@ void AWeaponBase::OnCollisionBoxBeginOverlap(UPrimitiveComponent* OverlappedComp
 
 	if (APawn* HitPawn = Cast<APawn>(OtherActor))
 	{
-		if (WeaponOwningPawn != HitPawn)
+		if (UCharacterFunctionLibrary::IsTargetPawnHostile(WeaponOwningPawn, HitPawn))
 		{
-			//LOG_I(FColor::Green, "{} begin overlap with {}", GetName(), HitPawn->GetName());
 			OnWeaponHitTarget.ExecuteIfBound(OtherActor);
 		}
-
-		//TODO: Implement hit check for enemy characters
 	}
 }
 
@@ -49,13 +48,10 @@ void AWeaponBase::OnCollisionBoxEndOverlap(UPrimitiveComponent* OverlappedCompon
 
 	if (APawn* HitPawn = Cast<APawn>(OtherActor))
 	{
-		if (WeaponOwningPawn != HitPawn)
+		if (UCharacterFunctionLibrary::IsTargetPawnHostile(WeaponOwningPawn, HitPawn))
 		{
-			//LOG_I(FColor::Red, "{} end overlap with {}", GetName(), HitPawn->GetName());
 			OnWeaponPulledFromTarget.ExecuteIfBound(OtherActor);
 		}
-
-		//TODO: Implement hit check for enemy characters
 	}
 }
 

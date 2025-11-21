@@ -2,4 +2,45 @@
 
 
 #include "Components/Combat/EnemyCombatComponent.h"
+#include "AbilitySystemBlueprintLibrary.h"
+#include "HeroGameplayTags.h"
 
+#include "DebugHelper.h"
+
+void UEnemyCombatComponent::OnHitTargetActor(AActor* HitActor)
+{
+	if (OverlappedActors.Contains(HitActor))
+	{
+		return;
+	}
+
+	OverlappedActors.AddUnique(HitActor);
+
+	//TODO: Implement Block check
+	bool bIsValidBlock = false;
+
+	const bool bIsPlayerBlocking = false;
+	const bool bIsMyAttackUnblockable = false;
+
+	if (bIsPlayerBlocking && !bIsMyAttackUnblockable)
+	{
+		//TODO: check if the block is valid
+	}
+
+	FGameplayEventData EventData;
+	EventData.Instigator = GetOwningPawn();
+	EventData.Target = HitActor;
+
+	if (bIsValidBlock)
+	{
+		//TODO: Handle successful block
+	}
+	else
+	{
+		UAbilitySystemBlueprintLibrary::SendGameplayEventToActor(
+			GetOwningPawn(),
+			HeroGameplayTags::Shared_Event_MeleeHit,
+			EventData
+		);
+	}
+}

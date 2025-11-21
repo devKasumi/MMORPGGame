@@ -16,7 +16,9 @@ public class MMORPG : ModuleRules
 			"EnhancedInput",
             "GameplayTags",
 			"EnhancedInput",
-            "GameplayTasks"
+            "GameplayTasks",
+            "AnimGraphRuntime",
+			"MotionWarping"
         });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

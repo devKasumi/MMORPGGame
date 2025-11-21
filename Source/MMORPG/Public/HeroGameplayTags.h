@@ -62,6 +62,10 @@ namespace HeroGameplayTags
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Ability_Ranged);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
 
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Status_Strafing);
+
+	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Status_UnderAttack);
+
 	/** Shared tags **/
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Status_JumpToFinisher);
 	MMORPG_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Ability_HitReact);

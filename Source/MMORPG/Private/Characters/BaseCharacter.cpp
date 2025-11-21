@@ -12,6 +12,7 @@
 #include "HeroGameplayTags.h"
 #include "AbilitySystem/CharacterAbilitySystemComponent.h"
 #include "AbilitySystem/CharacterAttributeSet.h"
+#include "MotionWarpingComponent.h"
 
 #include "DebugHelper.h"
 
@@ -26,6 +27,7 @@ ABaseCharacter::ABaseCharacter()
 
 	CharacterAbilitySystemComponent = CreateDefaultSubobject<UCharacterAbilitySystemComponent>(TEXT("CharacterAbilitySystemComponent"));
 	CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
+	MotionWarpingComponent = CreateDefaultSubobject<UMotionWarpingComponent>(TEXT("MotionWarpingComponent"));
 
 }
 
